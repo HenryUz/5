@@ -90,7 +90,6 @@ public class DrunkCarnivalShooterImpl implements DrunkCarnivalShooter {
 		int newT = shootFuzz(t, builder);
 		if (takeDownTarget(newT)) {
 			builder.append("You hit target #" + newT + "! \"The Force is strong with this one.\", Darth opines.\n");
-			remainingTargetNum--;
 			return true;
 		} else {
 			builder.append("You miss! \"Do or do not. There is no try.\", Yoda chides.\n");
