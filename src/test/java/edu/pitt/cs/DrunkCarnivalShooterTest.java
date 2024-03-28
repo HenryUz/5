@@ -85,17 +85,15 @@ import gov.nasa.jpf.vm.Verify;
 		setUp();
 
 		
-		boolean result = shooter.shoot(targetChoice, builder);
-		
-		// Verify the shooting result
-		if (shooter.isTargetStanding(targetChoice)) {
-			// If the target was standing, the result should be the same as the target choice
-			assertFalse(result);
+		shooter.shoot(targetChoice, builder);
 
-		} else {
-			// If the target was not standing, the result should be -1
-			assertTrue(result);
-		}
+		int numStandingTargets = 0;
+        for (int i = 0; i < 4; i++) {
+            if (shooter.isTargetStanding(i)) {
+                numStandingTargets++;
+            }
+        }
+        assertEquals(numStandingTargets, shooter.getRemainingTargetNum());
 		
 		
 
